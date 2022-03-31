@@ -15,8 +15,6 @@ public class Program
         foreach (Book item in books)
         {
             item.DisplayBook();
-
         }
-      
     }
 }
