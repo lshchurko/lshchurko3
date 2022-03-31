@@ -3,7 +3,7 @@
     class BuyerDebitCard : Buyer
     {
         string paymentType = "Debit Card paymnets";
-        public override void pay()
+        public override void Pay()
         {
             Console.WriteLine(paymentType);
         }

@@ -1,9 +1,7 @@
-﻿
-namespace buyer_homework6
+﻿namespace buyer_homework6
 {
     abstract class Buyer
     {
-        public abstract void pay ();
+        public abstract void Pay();
     }
-
 }

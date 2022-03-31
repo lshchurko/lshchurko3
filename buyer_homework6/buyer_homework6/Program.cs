@@ -15,7 +15,7 @@ public class Program
 
         foreach (Buyer item in buyers)
         {
-            item.pay();
+            item.Pay();
         }
     }
 }
