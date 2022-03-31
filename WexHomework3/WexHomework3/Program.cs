@@ -3,15 +3,11 @@
     for (int i = 0; i < array.Length; i++)
     {
         array[i] = i;
-
-        int k = 1;
-        while (k<cofficient)
+        for (int power=1;power<=cofficient;power++)
         {
-            array[i] = array[i]*i;
-            k++;
+            array[i]=(int)Math.Pow(i,power);
         }
     }
-
 }
 
 static float avgCalculation(int[] arrayAvg)
@@ -22,7 +18,6 @@ static float avgCalculation(int[] arrayAvg)
         avgs  += arrayAvg[e];
     }
     avgs = avgs / arrayAvg.Length;
-
     return avgs;
 }
  
@@ -32,6 +27,3 @@ for(int z = 1; z<=3;z++)
     IntializeArray(arrayF, z);
     Console.WriteLine("Average array{0}  {1}", z, avgCalculation(arrayF));
 }
-
-
-
