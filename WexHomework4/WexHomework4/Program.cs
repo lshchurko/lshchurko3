@@ -1,14 +1,10 @@
-﻿
-
-// заполняем массив рандомными числами от -100 до 100
+﻿// заполняем массив рандомными числами от -100 до 100
 static void IntializeArray(int[] array, int cofficient)
 {
-    Random rnd = new Random();
-   
-
-    for (int step = 0; step < array.Length; step++)
+    //Random rnd = new Random();
+   for (int step = 0; step < array.Length; step++)
     {
-        array[step] = rnd.Next(-100, 100);
+        array[step] = new Random().Next(-100, 100);
         //Console.WriteLine(array[step]);
     }
     
@@ -69,25 +65,25 @@ static Array findExtremumPositions(int[] arrays, string extremum2)
 }
 for (int z = 1; z <= 2; z++)
 {
-    Random rnd2 = new Random();
-    int randArrayLength = rnd2.Next(2, 100);
+    //Random rnd2 = new Random();
+    int randArrayLength = new Random().Next(2, 100);
     int[] arrayF = new int[randArrayLength];
     IntializeArray(arrayF, z);
-    int minValue = extremumCalculation(arrayF, "min");
-    int maxValue = extremumCalculation(arrayF, "max");
+    //int minValue = extremumCalculation(arrayF, "min");
+    //int maxValue = extremumCalculation(arrayF, "max");
     int[] positionsMin = (int[])findExtremumPositions(arrayF, "min");
     int[] positionsMax = (int[])findExtremumPositions(arrayF, "max");
-    Console.WriteLine("Min array{0}  {1}", z, minValue);
+    Console.WriteLine("Min array{0}  {1}", z, extremumCalculation(arrayF, "min"));
     for (int r = 0; r < positionsMin.Length; r++)
     {
         Console.WriteLine("Min array{0}  possitions {1}", z, positionsMin[r]);
     }
-    Console.WriteLine("Max array{0}  {1}", z, maxValue);
+    Console.WriteLine("Max array{0}  {1}", z, extremumCalculation(arrayF, "max"));
     for (int r2 = 0; r2 < positionsMax.Length; r2++)
     {
         Console.WriteLine("Max array{0}  possitions {1}", z, positionsMax[r2]);
     }
-    arrayF = (int[])finalArray(arrayF,minValue,maxValue);
+    arrayF = (int[])finalArray(arrayF, extremumCalculation(arrayF, "min"), extremumCalculation(arrayF, "max"));
     // ниже узнаем позиции мин и макс значений в обоих массивах после перестановки местами
     int[] positionsMinFinal = (int[])findExtremumPositions(arrayF, "min");
     int[] positionsMaxFinal = (int[])findExtremumPositions(arrayF, "max");
@@ -100,10 +96,4 @@ for (int z = 1; z <= 2; z++)
     {
         Console.WriteLine("Max array{0}  Final possitions {1}", z, positionsMaxFinal[l2]);
     }
-
-
-
 }
-
-
-
