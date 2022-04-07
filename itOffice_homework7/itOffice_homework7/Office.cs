@@ -3,7 +3,7 @@ namespace itOffice_homework7
 {
     class Office
      {
-        List<Employee> _employees;
+        public List<Employee> _employees;
 
         public List<Employee> Employees
         {

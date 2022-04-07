@@ -18,33 +18,27 @@
 
             foreach (Employee employee in ls.Employees)
             {
-                if (employee is ICoding)
+                if (employee is ICoding || employee is ICodeReview || employee is IAssignTasks)
                 {
-                    (employee as ICoding).Coding();
-                    Console.WriteLine(employee.ToString());
-                    //break;
-                }
-            }
+                    if (employee is ICoding)
+                    {
+                        (employee as ICoding).Coding();
+                        Console.WriteLine(employee.ToString());
+                    }
+                    if (employee is ICodeReview)
+                    {
+                        (employee as ICodeReview).CodeReview();
+                        Console.WriteLine(employee.ToString());
+                    }
+                    if (employee is IAssignTasks)
+                    {
+                        (employee as IAssignTasks).AssignTask();
+                        Console.WriteLine(employee.ToString());
+                    }
 
-            foreach (Employee employee in ls.Employees)
-            {
-                if (employee is ICodeReview)
-                {
-                    (employee as ICodeReview).CodeReview();
-                    Console.WriteLine(employee.ToString());
-                    //break;
-                }
-            }
-
-            foreach (Employee employee in ls.Employees)
-            {
-                if (employee is IAssignTasks)
-                {
-                    (employee as IAssignTasks).AssignTask();
-                    Console.WriteLine(employee.ToString());
-                    //break;
                 }
             }
         }
     }
 }
+
