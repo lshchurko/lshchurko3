@@ -49,7 +49,7 @@ static int[] finalArray(int[] array3,int valueMin,int valueMax)
 
 //находит индексы где расположены все мин или все макс значения
 
-static Array findExtremumPositions(int[] arrays, string extremum2)
+static int[] findExtremumPositions(int[] arrays, string extremum2)
  {
     List<int> positionsMinMax = new List<int>();
 
@@ -69,24 +69,24 @@ for (int z = 1; z <= 2; z++)
     int randArrayLength = new Random().Next(2, 100);
     int[] arrayF = new int[randArrayLength];
     IntializeArray(arrayF, z);
-    //int minValue = extremumCalculation(arrayF, "min");
-    //int maxValue = extremumCalculation(arrayF, "max");
-    int[] positionsMin = (int[])findExtremumPositions(arrayF, "min");
-    int[] positionsMax = (int[])findExtremumPositions(arrayF, "max");
-    Console.WriteLine("Min array{0}  {1}", z, extremumCalculation(arrayF, "min"));
+    int minValue = extremumCalculation(arrayF, "min");
+    int maxValue = extremumCalculation(arrayF, "max");
+    int[] positionsMin = findExtremumPositions(arrayF, "min");
+    int[] positionsMax = findExtremumPositions(arrayF, "max");
+    Console.WriteLine("Min array{0}  {1}", z, minValue);
     for (int r = 0; r < positionsMin.Length; r++)
     {
         Console.WriteLine("Min array{0}  possitions {1}", z, positionsMin[r]);
     }
-    Console.WriteLine("Max array{0}  {1}", z, extremumCalculation(arrayF, "max"));
+    Console.WriteLine("Max array{0}  {1}", z, maxValue);
     for (int r2 = 0; r2 < positionsMax.Length; r2++)
     {
         Console.WriteLine("Max array{0}  possitions {1}", z, positionsMax[r2]);
     }
-    arrayF = (int[])finalArray(arrayF, extremumCalculation(arrayF, "min"), extremumCalculation(arrayF, "max"));
+    arrayF = (int[])finalArray(arrayF, minValue, maxValue);
     // ниже узнаем позиции мин и макс значений в обоих массивах после перестановки местами
-    int[] positionsMinFinal = (int[])findExtremumPositions(arrayF, "min");
-    int[] positionsMaxFinal = (int[])findExtremumPositions(arrayF, "max");
+    int[] positionsMinFinal = findExtremumPositions(arrayF, "min");
+    int[] positionsMaxFinal = findExtremumPositions(arrayF, "max");
         for (int l = 0; l < positionsMinFinal.Length; l++)
     {
         Console.WriteLine("Min array{0}  Final possitions {1}", z, positionsMinFinal[l]);
